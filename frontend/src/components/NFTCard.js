@@ -10,7 +10,7 @@ const NFTCard = ({ nft }) => {
                 <div className="nft-price">
                     {nft.price} ETH
                 </div>
-                <button className="buy-btn">Buy</button>
+                <button className="buy-button">Buy</button>
             </div>
         </div>
     );
