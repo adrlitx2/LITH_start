@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom'; // This is assuming you're using react-router for navigation
 
 const Footer = () => {

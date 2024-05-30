@@ -1,22 +1,26 @@
-﻿import React from 'react';
-import { Helmet } from 'react-helmet';
+import React from 'react';
+import './AdminDashboard.css'; // Assuming the CSS file is in the same folder
 
-const AdminDashboard = ({ data }) => (
-    <>
-        <Helmet>
-            <title>{data.title} - NFT Marketplace</title>
-            <meta name='description' content={data.description} />
-            <meta property='og:title' content={data.title + ' - NFT Marketplace'} />
-            <meta property='og:description' content={data.description} />
-            <meta property='og:image' content={data.image} />
-            <meta property='twitter:title' content={data.title + ' - NFT Marketplace'} />
-            <meta property='twitter:description' content={data.description} />
-            <meta property='twitter:image' content={data.image} />
-        </Helmet>
-        <div>
-            <h1>{data.title}</h1>
-            <p>{data.description}</p>
+const AdminDashboard = () => {
+    return (
+        <div className="admin-dashboard">
+            <h1>Admin Dashboard</h1>
+            <div className="dashboard-sections">
+                <div className="section users">
+                    <h2>Manage Users</h2>
+                    {/* User management functionality */}
+                </div>
+                <div className="section nfts">
+                    <h2>Manage NFTs</h2>
+                    {/* NFT management functionality */}
+                </div>
+                <div className="section transactions">
+                    <h2>Transaction Logs</h2>
+                    {/* Transaction log functionality */}
+                </div>
+            </div>
         </div>
-    </>
-);
+    );
+};
+
 export default AdminDashboard;
