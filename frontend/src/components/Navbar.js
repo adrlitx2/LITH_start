@@ -1,34 +1,22 @@
 ﻿import React from 'react';
-import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom'; // Assuming react-router for navigation
-
-const Navbar = ({ data }) => (
-    <>
-        <Helmet>
-            <title>{data.title} - NFT Marketplace</title>
-            <meta name='description' content={data.description} />
-            <meta property='og:title' content={data.title + ' - NFT Marketplace'} />
-            <meta property='og:description' content={data.description} />
-            <meta property='og:image' content={data.image} />
-            <meta property='twitter:title' content={data.title + ' - NFT Marketplace'} />
-            <meta property='twitter:description' content={data.description} />
-            <meta property='twitter:image' content={data.image} />
-        </Helmet>
-        <div>
-            <h1>{data.title}</h1>
-            <p>{data.description}</p>
-        </div>
-    </>
-);
 
 const Navbar = () => {
     return (
-        <nav>
-            <Link to="/">Home</Link>
-            <Link to="/marketplace">Marketplace</Link>
-            <Link to="/profile">Profile</Link>
-            {/* Add more navigation links as needed */}
-        </nav>
+        <header className="navbar">
+            <div className="logo">
+                <Link to="/">NFT Marketplace</Link> {/* Assuming the logo leads to the home page */}
+            </div>
+            <nav>
+                <Link to="/explore">Explore</Link> {/* Changed to /explore assuming it's for browsing NFTs */}
+                <Link to="/stats">Stats</Link> {/* Assuming there's a stats page */}
+                <Link to="/profile">Profile</Link> {/* Link to the user's profile */}
+                {/* Additional links can be added here as needed */}
+            </nav>
+            <div className="search-bar">
+                <input type="text" placeholder="Search items, collections, and accounts" /> {/* Search bar */}
+            </div>
+        </header>
     );
 };
 

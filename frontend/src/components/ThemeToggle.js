@@ -1,22 +1,26 @@
-﻿import React from 'react';
-import { Helmet } from 'react-helmet';
+﻿import React, { useState, useEffect } from 'react';
 
-const ThemeToggle = ({ data }) => (
-    <>
-        <Helmet>
-            <title>{data.title} - NFT Marketplace</title>
-            <meta name='description' content={data.description} />
-            <meta property='og:title' content={data.title + ' - NFT Marketplace'} />
-            <meta property='og:description' content={data.description} />
-            <meta property='og:image' content={data.image} />
-            <meta property='twitter:title' content={data.title + ' - NFT Marketplace'} />
-            <meta property='twitter:description' content={data.description} />
-            <meta property='twitter:image' content={data.image} />
-        </Helmet>
-        <div>
-            <h1>{data.title}</h1>
-            <p>{data.description}</p>
-        </div>
-    </>
-);
+const ThemeToggle = () => {
+    const [theme, setTheme] = useState('light'); // default theme
+
+    useEffect(() => {
+        const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : 'light';
+        setTheme(currentTheme);
+        document.body.className = currentTheme; // Apply the theme to the body
+    }, []);
+
+    const toggleTheme = () => {
+        const newTheme = theme === 'light' ? 'dark' : 'light';
+        setTheme(newTheme);
+        localStorage.setItem('theme', newTheme); // Save theme preference
+        document.body.className = newTheme; // Apply the new theme
+    };
+
+    return (
+        <button onClick={toggleTheme} className="theme-toggle">
+            Switch to {theme === 'light' ? 'Dark' : 'Light'} Mode
+        </button>
+    );
+};
+
 export default ThemeToggle;

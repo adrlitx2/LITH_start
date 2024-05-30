@@ -1,22 +1,24 @@
 ﻿import React from 'react';
-import { Helmet } from 'react-helmet';
+import { Link } from 'react-router-dom'; // This is assuming you're using react-router for navigation
 
-const Footer = ({ data }) => (
-    <>
-        <Helmet>
-            <title>{data.title} - NFT Marketplace</title>
-            <meta name='description' content={data.description} />
-            <meta property='og:title' content={data.title + ' - NFT Marketplace'} />
-            <meta property='og:description' content={data.description} />
-            <meta property='og:image' content={data.image} />
-            <meta property='twitter:title' content={data.title + ' - NFT Marketplace'} />
-            <meta property='twitter:description' content={data.description} />
-            <meta property='twitter:image' content={data.image} />
-        </Helmet>
-        <div>
-            <h1>{data.title}</h1>
-            <p>{data.description}</p>
-        </div>
-    </>
-);
+const Footer = () => {
+    return (
+        <footer className="footer">
+            <div className="footer-content">
+                <p>© 2024 NFT Marketplace. All rights reserved.</p>
+                <div className="footer-links">
+                    <Link to="/terms">Terms of Service</Link>
+                    <Link to="/privacy">Privacy Policy</Link>
+                    {/* Add other links as needed */}
+                </div>
+                <div className="social-links">
+                    {/* Example social media links */}
+                    <a href="https://twitter.com/shoplith" target="_blank" rel="noopener noreferrer">Twitter</a>
+                    <a href="https://facebook.com/lithtoken" target="_blank" rel="noopener noreferrer">Facebook</a>
+                </div>
+            </div>
+        </footer>
+    );
+};
+
 export default Footer;

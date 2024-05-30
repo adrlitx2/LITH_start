@@ -1,22 +1,19 @@
 ﻿import React from 'react';
-import { Helmet } from 'react-helmet';
 
-const NFTCard = ({ data }) => (
-    <>
-        <Helmet>
-            <title>{data.title} - NFT Marketplace</title>
-            <meta name='description' content={data.description} />
-            <meta property='og:title' content={data.title + ' - NFT Marketplace'} />
-            <meta property='og:description' content={data.description} />
-            <meta property='og:image' content={data.image} />
-            <meta property='twitter:title' content={data.title + ' - NFT Marketplace'} />
-            <meta property='twitter:description' content={data.description} />
-            <meta property='twitter:image' content={data.image} />
-        </Helmet>
-        <div>
-            <h1>{data.title}</h1>
-            <p>{data.description}</p>
+const NFTCard = ({ nft }) => {
+    return (
+        <div className="nft-card">
+            <img src={nft.image} alt={nft.title} className="nft-image" />
+            <div className="nft-details">
+                <h3>{nft.title}</h3>
+                <p>{nft.description}</p>
+                <div className="nft-price">
+                    {nft.price} ETH
+                </div>
+                <button className="buy-btn">Buy</button>
+            </div>
         </div>
-    </>
-);
+    );
+};
+
 export default NFTCard;

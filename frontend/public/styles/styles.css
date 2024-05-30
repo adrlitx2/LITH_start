@@ -1,0 +1,86 @@
+/* Theme Toggle Button Styles */
+.theme-toggle {
+    padding: 8px 16px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #4CAF50; /* Bright green for visibility */
+    color: white;
+}
+
+/* Body Styles for Light and Dark Themes */
+/* Applied dynamically based on the theme state */
+body.light {
+    background-color: #fff; /* Light mode background color */
+    color: #333; /* Light mode text color */
+}
+
+body.dark {
+    background-color: #333; /* Dark mode background color */
+    color: #fff; /* Dark mode text color */
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #222; /* Dark background for footer */
+    color: white; /* White text for contrast */
+    padding: 20px;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between; /* Space elements evenly */
+    align-items: center; /* Vertically center content */
+}
+
+/* Styles for Links in Footer */
+.footer-links a, .social-links a {
+    color: #ccc; /* Subtle grey color for links */
+    text-decoration: none; /* Remove underline from links */
+    margin: 0 10px; /* Space out links */
+}
+
+.footer-links a:hover, .social-links a:hover {
+    color: #fff; /* White text on hover for better visibility */
+}
+
+/* Article Card Styles */
+.article-card {
+    border: 1px solid #ddd; /* Light grey border for definition */
+    border-radius: 8px; /* Rounded corners */
+    overflow: hidden; /* Keeps child elements within the card */
+    padding: 1rem;
+    margin-bottom: 1rem; /* Space between cards */
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+}
+
+.article-image {
+    width: 100%;
+    height: 200px; /* Fixed height, adjust as needed */
+    object-fit: cover; /* Ensure images cover the area without distortion */
+}
+
+.article-content h3 {
+    margin-top: 0.5rem; /* Space above the title */
+    color: #333; /* Dark grey color for readability */
+}
+
+.article-content p {
+    color: #666; /* Medium grey for text, less emphasis than the title */
+}
+
+.read-more {
+    margin-top: auto; /* Push to the bottom of the card */
+    padding: 0.5rem 1rem;
+    background-color: #007BFF; /* Bright blue for visibility and consistency with branding */
+    color: white;
+    text-decoration: none;
+    border-radius: 4px; /* Rounded corners */
+    text-align: center;
+    display: block; /* Block display to fit content width */
+    width: fit-content; /* Fit the content's width */
+    align-self: center; /* Center button in the card */
+}

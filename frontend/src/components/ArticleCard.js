@@ -1,22 +1,17 @@
 ﻿import React from 'react';
-import { Helmet } from 'react-helmet';
+import { Link } from 'react-router-dom'; // Assuming you use react-router for navigation
 
-const ArticleCard = ({ data }) => (
-    <>
-        <Helmet>
-            <title>{data.title} - NFT Marketplace</title>
-            <meta name='description' content={data.description} />
-            <meta property='og:title' content={data.title + ' - NFT Marketplace'} />
-            <meta property='og:description' content={data.description} />
-            <meta property='og:image' content={data.image} />
-            <meta property='twitter:title' content={data.title + ' - NFT Marketplace'} />
-            <meta property='twitter:description' content={data.description} />
-            <meta property='twitter:image' content={data.image} />
-        </Helmet>
-        <div>
-            <h1>{data.title}</h1>
-            <p>{data.description}</p>
+const ArticleCard = ({ article }) => {
+    return (
+        <div className="article-card">
+            <img src={article.image} alt={article.title} className="article-image" />
+            <div className="article-content">
+                <h3>{article.title}</h3>
+                <p>{article.summary}</p> {/* Assuming each article has a summary */}
+                <Link to={`/articles/${article.id}`} className="read-more">Read More</Link>
+            </div>
         </div>
-    </>
-);
+    );
+};
+
 export default ArticleCard;
