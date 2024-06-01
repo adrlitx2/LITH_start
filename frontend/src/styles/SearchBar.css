@@ -1,0 +1,71 @@
+/* src/components/SearchBar.css */
+.search-bar-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.category-select {
+    height: 40px;
+    width: 55px; /* Fixed width for the category select */
+    border: 1px solid #ccc;
+    border-right: none;
+    border-radius: 4px 0 0 4px;
+    padding: 0 5px;
+    background-color: #e0e0e0; /* Light grey color */
+    color: var(--highlight-jade);
+    font-family: var(--font-primary);
+    cursor: pointer;
+    text-align: center;
+}
+
+.search-input {
+    height: 40px;
+    flex-grow: 1;
+    border: 1px solid #ccc;
+    padding: 0 10px;
+    font-family: var(--font-primary);
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+}
+
+.search-button {
+    height: 40px;
+    border: 1px solid #ccc;
+    border-left: none;
+    border-radius: 0 4px 4px 0;
+    background-color: var(--highlight-jade);
+    color: white;
+    cursor: pointer;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.recommendations-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.recommendation-item {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.recommendation-item:hover {
+    background-color: var(--highlight-jade);
+    color: white;
+}

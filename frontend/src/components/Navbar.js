@@ -1,22 +1,68 @@
+// src/components/Navbar.js
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserCircle, faShoppingCart, faBars, faSearch } from '@fortawesome/free-solid-svg-icons'; // Fixed import
+import { faUserCircle, faShoppingCart, faBars, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
+import useLocation from '../utils/location';
+import SearchBar from './Searchbar';
+import '../styles/styles.css';
 
 const Navbar = () => {
-    const [isOpen, setIsOpen] = useState(false); // State to handle the toggle
-    const [isSearchOpen, setIsSearchOpen] = useState(false); // State to handle the search modal
+    const [isOpen, setIsOpen] = useState(false);
+    const [isSearchOpen, setIsSearchOpen] = useState(false);
+    const { city, zipcode } = useLocation();
 
-    const toggleSearchModal = () => {
-        setIsSearchOpen(!isSearchOpen);
+    const categories = [
+        'All',
+        'Art',
+        'Digital Art',
+        'Collectibles',
+        'Luxury Apparel',
+        'Luxury Items',
+        'Sports Memorabilia',
+        'Music',
+        'Gaming',
+        'Virtual Real Estate',
+        'Photography',
+        'Trading Cards',
+        'Domain Names',
+        'Metaverse Assets',
+        'Avatars',
+        'Animations',
+        'Film & Entertainment',
+        'Literature',
+        'Tickets',
+        'Utility NFTs',
+        'Fashion',
+        'Jewelry',
+        'Watches',
+        'Antiques',
+        'Furniture',
+        'Vehicles',
+        'Electronics',
+        'Health & Wellness',
+        'Home & Garden',
+        'Food & Beverage'
+    ];
+    
+
+    const handleSearch = (query, category) => {
+        console.log(`Searching for ${query} in ${category}`);
     };
 
     return (
         <header className="navbar">
             <div className="logo">
                 <Link to="/">
-                    <img src="/images/NOANE_full_jade.png" alt="NOANE" className="logo-image" /> {/* Corrected image path */}
+                    <img src="/images/NOANE_full_jade.png" alt="NOANE" className="logo-image" />
                 </Link>
+            </div>
+            <div className="navbar-location">
+                <FontAwesomeIcon icon={faMapMarkerAlt} className="location-icon" />
+                <div className="location-text">
+                    <p>Delivering to <span className='location-coordinates'>{city} {zipcode}</span></p>
+                    <button className="update-location-button">Update location</button>
+                </div>
             </div>
             <FontAwesomeIcon icon={faBars} className="hamburger" onClick={() => setIsOpen(!isOpen)} />
             <nav className="main-nav">
@@ -39,10 +85,7 @@ const Navbar = () => {
                 </div>
             </nav>
             <div className="icon-links">
-                <div className="search-bar">
-                    <input type="text" placeholder="Search items, collections, and accounts" />
-                </div>
-                <FontAwesomeIcon icon={faSearch} className="icon search-icon" onClick={toggleSearchModal} />
+                <SearchBar categories={categories} onSearch={handleSearch} />
                 <FontAwesomeIcon icon={faShoppingCart} className="icon shopping-cart" />
                 <div className="profile-dropdown">
                     <FontAwesomeIcon icon={faUserCircle} className="icon profile-icon" alt="Profile" />
@@ -57,16 +100,6 @@ const Navbar = () => {
                     </div>
                 </div>
             </div>
-
-            {/* Search Modal */}
-            {isSearchOpen && (
-                <div className="search-modal">
-                    <div className="search-modal-content">
-                        <span className="close" onClick={toggleSearchModal}>&times;</span>
-                        <input type="text" placeholder="Search items, collections, and accounts" className="search-modal-input" />
-                    </div>
-                </div>
-            )}
         </header>
     );
 };
